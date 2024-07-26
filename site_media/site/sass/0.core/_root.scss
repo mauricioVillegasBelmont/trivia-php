@@ -1,0 +1,16 @@
+:root{
+  @each $color_name, $color in $color_list {
+    $c_name: to-lower-case($color_name);
+    $c_name: str-replace($c_name, ' ', $replace: '-');
+    --c-#{$c_name} : #{$color};
+    @each $alpa in $color_alpha{
+      --c-#{$c_name}-#{$alpa} : #{ transparentize($color, (1 - (0.01*$alpa))) };
+    }
+    @each $darken in $color_darken{
+      --c-#{$c_name}-darken-#{$darken} : #{ darken( $color, ($darken) ) };
+    }
+    @each $lightness in $color_lightness{
+      --c-#{$c_name}-lightness-#{$lightness} : #{ lighten($color, ($lightness) ) };
+    }
+  }
+}

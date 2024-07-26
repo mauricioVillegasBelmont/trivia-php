@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>{PNL_TITLE}</title>
+  
+  <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="{PANEL_ASSETS}/css/panel.css" />
+  <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="{PANEL_ASSETS}/css/dataTables.min.css" />
+  <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="{PANEL_ASSETS}/css/login.css" />
+  <noscript>
+    <link rel="stylesheet" href="{PANEL_ASSETS}/css/panel.css" />
+    <link rel="stylesheet" href="{PANEL_ASSETS}/css/dataTables.min.css" />
+    <link rel="stylesheet" href="{PANEL_ASSETS}/css/login.css" />
+  </noscript>
+
+  {HEAD_IMPORTS}
+</head>
+
+<body class="">
+  <div class="bg-video position-absolute">
+    <video muted autoplay loop>
+      <source src="{PANEL_ASSETS}/vid/production_id_4779866.mp4" type="video/mp4" media="(min-width: 768px)">
+    </video>
+  </div>
+  <div id="layoutAuthentication" class="position-relative">
+    <main class="container-xxl mb-auto mt-5 mt-lg-auto px-xl-5">
+      <div class="row justify-content-center justify-content-lg-start">
+        <div id="login-card" class="card shadow-lg rounded-lg px-0">
+          <div class="card-header">
+            <h3 class="text-center font-weight-light my-4">Login</h3>
+          </div>
+          <div class="card-body">
+            <h5 class="panel-title mb-3">Ingreso al sistema</h5>
+            <form method="POST" action="{LOGIN_ACTION}" id="login">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="user" name="user" placeholder="Nombre de Usuario">
+                <label for="inputEmail">Usuario:</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="pwd" name="pwd" placeholder="Password">
+                <label for="inputPassword">Contraseña:</label>
+              </div>
+              <!-- <div class="form-check mb-3">
+                <input class="form-check-input" id="inputRememberPassword" type="checkbox" value="" />
+                <label class="form-check-label" for="inputRememberPassword">Remember Password</label>
+              </div> -->
+              <div class="d-flex align-items-center justify-content-end mt-4 mb-0">
+                <!-- <a class="small" href="password.html">Forgot Password?</a> -->
+                <button type="submit" class="btn btn-dark">Login</button>
+              </div>
+            </form>
+          </div>
+          <!-- <div class="card-footer text-center py-3">
+            <div class="small"><a href="register.html">Need an account? Sign up!</a></div>
+          </div> -->
+        </div>
+      </div>
+
+    </main>
+    
+    <footer class="container-fluid py-3">
+      <div class="row align-items-center justify-content-between small">
+        <div class="col col-12 col-lg-auto">
+          <a href="https://pymeweb.mx/" target="_blank" class="h6"><span class="btn btn-light">{PNL_COPYRIGHT_TXT} &copy;{YEAR}</span></a>
+        </div>
+
+        <div class="col col-lg-4 text-lg-end">
+          <a href="#" class="btn btn-light my-2">Privacy Policy</a>
+          &middot;
+          <a href="#" class="btn btn-light my-2">Terms &amp; Conditions</a>
+        </div>
+        
+      </div>
+    </footer>
+  </div>
+  <script src="{PANEL_ASSETS}/js/jquery-3.7.0.min.js"></script>
+  <script src="{PANEL_ASSETS}/js/bootstrap@5.0.2.min.js"></script>
+  <script src="{PANEL_ASSETS}/js/popper@2.9.2.min.js"></script>
+
+  {FOOTER_IMPORTS}
+</body>
+
+</html>

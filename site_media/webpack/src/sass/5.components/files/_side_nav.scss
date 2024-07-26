@@ -1,0 +1,69 @@
+.main_menu{
+   @extend %overflow-scroll;
+  max-width: 200px;
+  height: 100dvh;
+  max-height: 100vh;
+  padding-top: var(--header-h);
+  width: 0;
+  transition-delay: .125s;
+  transition: width .25s ease-in-out, padding-left .25s ease-in-out;
+  z-index: 5;
+  display: block;
+  @include media-breakpoint-down(lg){
+    padding: var(--header-h) 0 1rem;
+    z-index: 2000;
+    pointer-events: none;
+  }
+  &, & >nav{
+    overflow: hidden;
+  }
+
+  @include media-breakpoint-up(lg){
+    display: block;
+    width: var(--side-w);
+    @include hover(){
+      width: 100%;
+      z-index: 2000;
+      padding: var(--header-h) 1rem 1rem;
+      &::backdrop{
+        background-color: rgba(0,0,0,.25);
+      }
+    }
+  }
+  &__nav{
+    width: 100%;
+  }
+  &__item{
+    position: relative;
+    &::after{
+      content: '';
+      width: 0;
+      border-top: 1px solid;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transition: width .25s ease-in-out;
+    }
+    @include hover(){
+      &::after{
+        width: 100%;
+      }
+    }
+    &,& a {
+      text-overflow: clip;
+      white-space: nowrap;
+    }
+  }
+
+  &[open]{
+    @include media-breakpoint-down(lg){
+      width: 100%;
+      z-index: 2000;
+      padding: var(--header-h) 1rem 1rem;
+      pointer-events: all;
+      &::backdrop{
+        background-color: rgba(0,0,0,.25);
+      }
+    }
+  }
+}

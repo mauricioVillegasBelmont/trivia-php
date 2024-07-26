@@ -1,0 +1,31 @@
+$root_colors: true;
+$color_list : (
+  "transparent"    : rgba(0,0,0,0),
+  "white"    : #FFFFFF,
+  "black"    : #1c1c1c,
+  "gray"    : #86898d,
+  "gray-light"    : #cecece,
+  "gray-extralight"    : #f1f1f1,
+  "danger"    : #DC3545,
+  "success"    : #28A745,
+
+  "Ghost"     : #F6F9FF,
+  "Picton"    : #48B9DC,
+  "Magnolia"  : #F2F0FF,
+  "Maximum-Blue-Purple"  : #9B94FD,
+  "Outer-Space"  : #42445B,
+  "Cornsilk"  : #FFF7DE,
+  "Aero-Green"  : #C7F8E4,
+  "Azureish"  : #DCE3F7,
+  "Aero"  : #79C6DF,
+);
+$state_colors:(
+  'white',
+  "danger",
+  "success",
+  "alert",
+  'Picton',
+);
+$color_alpha:(50,25); //valores menores a 100
+$color_darken:(30); //valores menores a 100
+$color_lightness:(30); //valores menores a 100

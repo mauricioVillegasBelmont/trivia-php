@@ -1,0 +1,87 @@
+<script type="text/html" id="trivia__question">
+  <input type="hidden" name="trivia_id" data-value="TRIVIA_ID">
+  <div class="trivia__cuestion p--relative mb--7 animate__animated animate__fadeInRight">
+    <h1 class="h4 ff--headline" data-content="TRIVIA_PREGUNTA"></h1>
+  </div>
+</script>
+<script type="text/html" id="trivia__field">
+  <div class="trivia__field d--flex align__content--center justify__content--flex-start my--5 mx--auto px--gap animate__animated animate__fadeInRight">
+    <label class="d--inline-block input__boxlabel mr--2 p--relative" data-template-bind='[{"attribute": "for", "value": "ID"}]'>
+      <input  type="radio" name="ans" data-value="TRV_OPC_VAL" value="{TRV_OPC_VAL}" class="p--absolute w--100 h--100 trbl--0 z--n" required" data-id="ID">
+      <span class="icon--tick mr--3"></span>
+    </label>
+    <label class="label text--left" data-template-bind='[{"attribute": "for", "value": "ID" }]' data-content="TRV_OPC"></label>
+  </div>
+</script>
+
+
+<main class="pt--8">
+  <section class="p--relative text--center z--0">
+    <div class="container--md px--gap pb--7">
+      <h1 class="h1 ff--headline mt--7">TRIVIA</h1>
+      <form id="trivia" action="/save_trivia" class="trivia container--md" method="post" style="max-width: 100%;" data-token="{TRIVIA_TOKEN}">
+        <input type="hidden" name="tiempo" value="0">
+        <input type="hidden" name="timer" value="00:00:00">
+        <div class="my--5 my--lg--8 p--relative d--flex justify__content--center align__items--center">
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600"  xml:space="preserve" class="trivia__visualstarter trivia__animated-circle" id="visual">
+            <defs>
+              <linearGradient id="timer_gradient" x1="0" x2="0" y1="0" y2="1">
+                <stop offset="5%" stop-color="#A8A8A8" />
+                <stop offset="30%" stop-color="#000" />
+                <stop offset="100%" stop-color="#A8A8A8 " />
+              </linearGradient>
+            </defs>
+            <circle cx="300" cy="300" r="250" class="static--blue" />
+            <circle cx="300" cy="300" r="227" class="static--grad" />
+            <circle cx="300" cy="300" r="240" class="animated" />
+          </svg>
+          <p class="h5 p--absolute">
+            <span class="d--block">TIEMPO:</span>
+            <span id="timer" class="trivia__timer d--block">00:00:00</span>
+          </p>
+        </div>
+        <div id="trivia__request" class="trivia__wrapper"></div>
+        <div id="trivia__answers" class="trivia__wrapper">
+          <div class="trivia__field d--flex align__content--center justify__content--flex-start my--5 mx--auto px--gap v--hidden dissabled" style="visibility: hidden;">
+            <label class="d--inline-block input__boxlabel mr--2 p--relative"
+              data-template-bind='[{"attribute": "for", "value": "ID"}]'>
+              <input type="radio" name="ans" data-value="TRV_OPC_VAL" value="{TRV_OPC_VAL}"
+                class="p--absolute w--100 h--100 trbl--0 z--n" required" data-id="ID">
+              <span class="icon--tick mr--3"></span>
+            </label>
+            <label class="label text--left" data-template-bind='[{"attribute": "for", "value": "ID" }]'
+              data-content="TRV_OPC"></label>
+          </div>
+          <div class="trivia__field d--flex align__content--center justify__content--flex-start my--5 mx--auto px--gap v--hidden dissabled" style="visibility: hidden;">
+            <label class="d--inline-block input__boxlabel mr--2 p--relative"
+              data-template-bind='[{"attribute": "for", "value": "ID"}]'>
+              <input type="radio" name="ans" data-value="TRV_OPC_VAL" value="{TRV_OPC_VAL}"
+                class="p--absolute w--100 h--100 trbl--0 z--n" required" data-id="ID">
+              <span class="icon--tick mr--3"></span>
+            </label>
+            <label class="label text--left" data-template-bind='[{"attribute": "for", "value": "ID" }]'
+              data-content="TRV_OPC"></label>
+          </div>
+          <div class="trivia__field d--flex align__content--center justify__content--flex-start my--5 mx--auto px--gap v--hidden dissabled" style="visibility: hidden;">
+            <label class="d--inline-block input__boxlabel mr--2 p--relative"
+              data-template-bind='[{"attribute": "for", "value": "ID"}]'>
+              <input type="radio" name="ans" data-value="TRV_OPC_VAL" value="{TRV_OPC_VAL}"
+                class="p--absolute w--100 h--100 trbl--0 z--n" required" data-id="ID">
+              <span class="icon--tick mr--3"></span>
+            </label>
+            <label class="label text--left" data-template-bind='[{"attribute": "for", "value": "ID" }]'
+              data-content="TRV_OPC"></label>
+          </div>
+        </div>
+        <div class="form-group text-center mx-auto mt--7">
+          <p class="mb--5"><button type="submit" name="submit" class="btn__cta ff--headline">Siguiente</button></p>
+        </div>
+      </form>
+    </div>
+
+  </section>
+
+
+</main>
+<!--
+<dialog id="loader"></dialog> -->

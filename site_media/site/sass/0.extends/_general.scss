@@ -1,0 +1,12 @@
+%header-slide-card{
+  @extend %background-no-repeat;
+  @extend %background-contain;
+  @extend %background-right;
+  background-image: none;
+  @include media-breakpoint-up(lg){
+    background-image: var(--bg);
+  }
+  .logo img{
+    max-width: 300px;
+  }
+}

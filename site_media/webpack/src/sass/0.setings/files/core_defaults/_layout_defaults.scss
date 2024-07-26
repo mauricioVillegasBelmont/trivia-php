@@ -1,0 +1,110 @@
+@use "sass:meta";
+@use 'sass:list';
+@use "sass:math";
+@use "sass:map";
+@use "sass:string";
+@use "sass:selector";
+
+
+$breakpoints: (
+  0:  0px,
+  xs: 320px,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xx: 1560px
+) !default;
+$utility_breakpoints: ('sm','md','lg','xl','xx') !default;
+$grid_breakpoints: ('sm','md','lg','xl','xx') !default;
+
+//zindex
+$zindex_values:(
+  1:            1,
+  0:            0,
+  n:            -1,
+  sticky:            1020,
+  fixed:             1030,
+  modal-backdrop:    1040,
+  dropdown:          1045,
+  modal:             1050,
+  popover:           1060,
+  tooltip:           1070,
+) !default;
+
+
+// selector_prefix, element, modifier: (), (values), property, use_mixin
+$display_setup:[
+  ('d','',(),('inline','block','inline-block','list-item','table','none'), 'display', false ),
+  ('d','',(),('flex','grid','inline-flex','inline-grid'), 'display-helper', true ),
+] !default;
+$position_setup:[
+  ('p','',(),('static','relative','absolute','sticky','fixed'), 'position', false ),
+] !default;
+
+
+
+$flexbox_setup:[
+  ('flex','wrap',(),('nowrap','wrap','wrap-reverse'),'flex-wrap',true),
+  ('flex','direction',(),('row','row-reverse','column','column-reverse'),'flex-direction',true),
+  ('justify','content',(),('flex-start','flex-end','center','space-between','space-around'),'justify-content',true),
+  ('justify','items',(),('flex-start','flex-end','center','space-between','space-around'),'justify-items',true),
+  ('justify','self',(),('flex-start','flex-end','center','space-between','space-around'),'justify-self',true),
+  ('align','content',(),('flex-start','flex-end','center','space-between','space-around'),'align-content',true),
+  ('align','items',(),('flex-start','flex-end','center','space-between','space-around'),'align-items',true),
+  ('align','self',(),('flex-start','flex-end','center','space-between','space-around'),'align-self',true),
+  ('flex','wrap',(),('nowrap', 'wrap', 'wrap-reverse'),'flex-wrap',true),
+  ('flex','shrink',(),(0,1),'flex-shrink',true),
+  ('flex','grow',(),(0,1),'flex-grow',true),
+] !default;
+
+$order_length: 2 !default;
+@if meta.type-of($order_length) == 'number' and $order_length > 0{
+  $_order_values:();
+  @for $i from 0 through $order_length {
+    $_order_values: list.append($_order_values, ($i) );
+  }
+  $_arr:('order','',(),$_order_values,'flex-order',true);
+  $flexbox_setup: list.append($flexbox_setup, $_arr);
+}
+
+
+
+$_widht_height_defaults: (20,25,50,75,80,100) !default;
+$width_setup:[
+  ('w','',(),$_widht_height_defaults, 'width-val', true )
+] !default;
+$height_setup:[
+  ('h','',(),$_widht_height_defaults, 'height-val', true )
+] !default;
+
+
+$padding_setup:[
+  ('p',('x','y'), 9, 'padding' ,false),
+  ('p', ('t','r','b','l',), 9, 'padding', false ),
+] !default;
+$margin_setup:[
+  ('m', ('a','x',), 1, 'margin', true ),
+  ('m', ('y',), 9, 'margin', true ),
+  ('m', ('t','r','b','l',), 9, 'margin', true ),
+]!default;
+
+
+
+
+$zindex_query_keys:(1,0,n);
+$zindex_simple_keys:( sticky, fixed, modal-backdrop, dropdown, modal, popover, tooltip);
+$zindex_keys:();
+@each $z_key,$z_value in $zindex_values{
+  $zindex_keys: list.append($zindex_keys,$z_key);
+}
+
+$zindex_setup:[
+  ('z','',(),$zindex_keys,'zindex-utility',true),
+] !default;
+$zindex_query_setup:[
+  ('z','',(),$zindex_query_keys,'zindex-utility',true),
+] !default;
+$zindex_simple_setup:[
+  ('z','',(),$zindex_simple_keys,'zindex-utility',true),
+] !default;

@@ -1,0 +1,28 @@
+{
+  "name": "prom1009",
+  "version": "1.0.0",
+  "description": "website and app promo",
+  "main": "prom1009.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "test"
+  },
+  "author": "pymeweb",
+  "license": "ISC",
+  "dependencies": {
+    "copy-webpack-plugin": "^12.0.2",
+    "crypto-js": "^4.2.0",
+    "css-loader": "^7.1.1",
+    "file-loader": "^6.2.0",
+    "jquery.loadtemplate": "^1.5.10",
+    "mini-css-extract-plugin": "^2.9.0",
+    "moment": "^2.30.1",
+    "moment-locales-webpack-plugin": "^1.2.0",
+    "postcss-scss": "^4.0.9",
+    "sass": "^1.75.0",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

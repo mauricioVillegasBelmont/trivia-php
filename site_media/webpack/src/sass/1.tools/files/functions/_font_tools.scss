@@ -1,0 +1,37 @@
+@use "sass:meta";
+@use "sass:math";
+@use 'sass:list';
+@use "sass:map";
+@use "sass:string";
+
+
+//font utilities
+$rem_default_size: 16px !default;
+@function stripUnit($value) {
+  @if meta.type-of($value) == 'number' and not math.is-unitless($value) {
+    $_tmp: ($value * 0 + 1);
+    @return _divide($value, $_tmp);
+  }
+  @return $value;
+}
+@function px_to_rem($pxValue){
+  $value: stripUnit($pxValue);
+  $rem_default_size: stripUnit($rem_default_size);
+  $val: _divide($value,$rem_default_size);
+  $val: to_number(#{$val+rem});
+  @return $val;
+}
+
+
+@function _font_clamp_calc($min, $max, $max_b_key: lg, $min_b_key: xs){
+
+  $min_width:  get_map_value($breakpoints, $min_b_key);
+  $max_width:  get_map_value($breakpoints, $max_b_key);
+  @if _is_unit($min_width, px) {$min_width: px_to_rem($min_width);}
+  @if _is_unit($max_width, px) {$max_width: px_to_rem($max_width);}
+
+  $slope: _divide( ($max - $min), ($max_width - $min_width));
+  $yAxisIntersection: -$min_width * $slope + $min;
+  $preferredValue: unquote(#{#{$yAxisIntersection}' + '#{stripUnit($slope * 100)}vw});
+  @return #{clamp( $min, $preferredValue, $max)};
+}

@@ -1,0 +1,19 @@
+.slider{
+  &__title{
+    &--home{
+      width: 75%;
+      max-width: 370px;
+      @include media-breakpoint-down(lg){
+        text-align: center;
+      }
+    }
+  }
+  &__control{
+    position: absolute;
+    max-width:  1.875rem;
+    max-height: 1.875rem;
+    aspect-ratio: 1;
+  }
+    // d--flex justify__content--center align__items--center
+
+}

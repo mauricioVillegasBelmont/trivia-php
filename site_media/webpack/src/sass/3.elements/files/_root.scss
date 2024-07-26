@@ -1,0 +1,14 @@
+:root{
+  --scale:1;
+  --fs-value: #{$gobal_font_size};
+  --f-linehight-value: #{$gobal_lineheight};
+  --col-gap:1.75rem;
+  --row-gap:1.75rem;
+  --body-h: auto;
+  --footer-h: 0px;
+  --header-h: 0px;
+  --side-w:64px;
+  @include root_color_variables();
+
+
+}

@@ -1,0 +1,11 @@
+%F_color_inherit{
+  color: inherit;
+}
+@each $key, $value in $color_list{
+  %BG_#{$key}{
+    background-color: color_var($key);
+  }
+  %F_color_#{$key}{
+    color: color_var($key);
+  }
+}

@@ -1,0 +1,26 @@
+$ASSET_VERSION: '' !default;
+$CSS_IMAGES_PATH: '/assets/images' !default;
+$CSS_FONTS_PATH: '/assets/fonts' !default;
+
+$FIBONACCI_SERIE:(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987);
+$FIBONACCI_SERIE_U:(0, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987);
+$FIBONACCI_GR_INCREMENT:1.618;
+$FIBONACCI_GR_DECREMENT:.618;
+
+
+$grid-columns:12 !default;
+
+$prefixes:() !default;
+
+$DIRECTION_ARRAY:(
+  'top', 'right', 'bottom', 'left',
+) !default;
+$DIRECTION_OBJ:(
+  a: $DIRECTION_ARRAY,
+  x:('left', 'right'),
+  y:('top', 'bottom'),
+  t:'top',
+  r:'right',
+  b:'bottom',
+  l:'left',
+) !default;

@@ -1,0 +1,61 @@
+
+.container{
+  @extend %width-100;
+  @extend %mx-auto;
+  max-width: 1140px;
+  &-fluid{
+    @extend %width-100;
+    @extend %mx-auto;
+    max-width: 100%;
+  }
+  &-xs{
+    @extend %width-100;
+    @extend %mx-auto;
+    max-width: 320px;
+  }
+  &-sm{
+    @extend %width-100;
+    @extend %mx-auto;
+    max-width: 720px;
+  }
+  &-md{
+    @extend %width-100;
+    @extend %mx-auto;
+    max-width: 950px;
+  }
+  &-lg{
+    @extend %width-100;
+    @extend %mx-auto;
+    @include media-breakpoint-up(xl){
+      max-width: 1220px;
+    }
+  }
+  &-xx{
+    @extend %width-100;
+    @extend %mx-auto;
+    @include media-breakpoint-up(xl){
+      max-width: 1720px;
+    }
+  }
+}
+.container-fluid{
+  @extend %display-block;
+  @extend %margin-0-auto;
+  width: 100%;
+  max-width: 100%;
+}
+.row{
+  @extend %display-flex;
+  @extend %flex-row;
+  @extend %flex-wrap;
+}
+
+%grid-column {
+  padding-right: .75rem;
+  padding-left:  .75rem;
+  @include media-breakpoint-up(lg){
+    padding-right: 1.25rem;
+    padding-left:  1.25rem;
+  }
+}
+@include column-grid-generator($breakpoints, 12);

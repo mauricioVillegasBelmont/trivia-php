@@ -1,0 +1,41 @@
+<main class="">
+  <!--home_header-->
+  <section class="p--relative">
+
+    <picture class="slider__img">
+      <source media="(min-width: 992px)" srcset="{SITE_ASSETS}/img/bg/header-lg.webp" />
+      <img src="{SITE_ASSETS}/img/bg/header-sm.webp" alt="header registro">
+    </picture>
+
+
+  </section>
+  <!--/home_header-->
+  <section class="p--relative  py--7 text--center c__white">
+    <h1 class="h1 ff--headline mb--7">REGISTRAE PARA PROBAR LA TRIVIA</h1>
+
+    <div class="container px--gap mb--6">
+      <form action="/registration" method="post" enctype="multipart/form-data" class="container--md row">
+        <div class="col--gap col--12 col--lg--6 px--5">
+          <input type="text" name="nombre" value="" placeholder="Nombre Completo" class="input__text c__ebony text--center"
+            autocomplete="name" required />
+        </div>
+        <div class="col--gap col--12 col--lg--6 px--5">
+          <input type="email" name="email" value="" placeholder="Correo electr&oacute;nico"
+            class="input__text c__ebony text--center" autocomplete="email" required />
+        </div>
+
+        <div class="px--gap col--12 text--center mt-7">
+          {ERROR_MSG}
+          <!-- <p class="text--center">{ERROR_MSG}</p> -->
+
+          <p><button type="submit" name="submit" class="btn__cta ff--headline">Registrarme</button></p>
+        </div>
+      </form>
+    </div>
+
+
+
+  </section>
+
+
+</main>

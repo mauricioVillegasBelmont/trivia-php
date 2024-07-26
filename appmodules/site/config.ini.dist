@@ -1,0 +1,8 @@
+SITE_VARIABLE = "test lorem"
+HEAD_IMPORTS = ""
+FOOTER_IMPORTS = ""
+GOOGLE_ANALYTICS = false;
+GOOGLE_TM = false;
+ERROR_MSG = ""
+
+SITE_ASSETS = '/site_media/site'

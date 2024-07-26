@@ -1,0 +1,48 @@
+html{
+  --scale:1;
+  --fs-value:1rem;
+  --f-linehight-value:1.25;
+  --ff-value: #{map-get($font-families, "default")};
+  --fw-value: normal;
+  --header-h:0;
+  --body-h: 0;
+  --footer-h: auto;
+  --header-h: auto;
+}
+html,body{
+  scroll-behavior: smooth;
+  min-height: 100vh;
+}
+body{
+  font-family: var(--ff-value);
+  font-size: var(--fs-value);
+  color: color_var('dark');
+  @extend %overflow-scroll;
+}
+
+div, h1, h2, h3, h4, h5, h6,p,blockquote, button ul, ol, li, datalist, label, small, table,figure, article, aside, details, footer, header, div, hgroup, menu, nav, output, section, summary, time, fieldset, form, legend,  caption, center, span,a,strong,em{
+  @extend %font-format;
+  * {
+    line-height: inherit;
+    font-family: inherit;
+    font-weight: inherit;
+  }
+}
+
+img,svg,canvas,video{
+  user-select: none;
+  @extend %display-block;
+  @extend %width-100;
+}
+object,figure,picture,img,video{
+  object-fit: cover;
+  @extend %cover_contain;
+}
+%cover_contain{
+  &.contain{
+    object-fit: contain;
+  }
+}
+hr{
+  border: 0;
+}

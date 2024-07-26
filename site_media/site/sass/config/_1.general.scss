@@ -1,0 +1,36 @@
+// $flex-prefixes: webkit-box moz-box webkit moz ms;
+$flex-prefixes:false;
+//mediaquery responsive $breakpoints
+$breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xx: 1560px
+);
+
+//zindex
+$zindex_values:(
+  sticky:            1020,
+  fixed:             1030,
+  modal-backdrop:    1040,
+  dropdown:          1045,
+  modal:             1050,
+  popover:           1060,
+  tooltip:           1070,
+);
+
+
+
+$position_utilities: true;
+$display_utilities: true;
+$flex_utilities: true;
+$width_utilities: true;
+$order_utilities: 2; // 0 : int limit from cero
+$zindex_utilities: true;
+$margin-utilities: true;
+$padding-utilities: true;
+
+// directions
+$directions-values:(top,right,bottom,left);

@@ -1,0 +1,29 @@
+@include selector_extendible_generator('deco_mask',(),()){
+  --upper-fill: rgba(0,0,0,0);
+  --lower-fill: rgba(0,0,0,0);
+  --fill-color: #{color_var('black')};
+  overflow: hidden;
+  pointer-events: none;
+  max-width: 100%;
+  max-height: 20vw;
+  @include media-breakpoint-up(lg){
+    max-height: 7vw;
+  }
+  svg{
+    min-width: 100vw;
+  }
+
+  &--upper{
+    @extend %deco_mask;
+    --upper-fill:var(--fill-color);
+  }
+  &--lower{
+    @extend %deco_mask;
+    --lower-fill:var(--fill-color);
+    transform: translateY(1px);
+  }
+
+}
+.fill--tundora{
+  --fill-color: #{color_var('tundora')};
+}

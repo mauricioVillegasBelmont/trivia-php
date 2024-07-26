@@ -1,0 +1,82 @@
+$state_colors:() !default;
+$color_alpha:(50) !default; //valores menores a 100
+$color_darken:() !default; //valores menores a 100
+$color_lightness:() !default; //valores menores a 100
+
+@function color_var($k){
+  $color: #000;
+  @if $root_colors{
+    $color: var(--c-#{$k});
+  }@else{
+    $color: map-get($color_list, #{$k});
+  }
+  @return $color;
+}
+
+
+
+@mixin linear-gradient($args...) {
+  background-image: -o-linear-gradient($args);
+  background-image: -moz-linear-gradient($args);
+  background-image: -webkit-linear-gradient($args);
+  background-image: linear-gradient($args);
+}
+@mixin color-class(){
+  @each $key, $value in $color_list{
+   &.#{$key}{@extend %F_color_#{$key};}
+  }
+}
+@mixin global-color-class(){
+  // @each $color_name, $val in $color_list{
+  //   @debug $color_name;
+  // }
+  @each $color_name, $val in $color_list{
+    .c-#{$color_name}{@extend %F_color_#{$color_name};}
+    @if index($state_colors, $color_name){
+      .c-hover-#{$color_name}{
+        @include hover(){
+          @extend %F_color_#{$color_name};
+        }
+      }
+      .c-active-#{$color_name}{
+        @include active(){
+          @extend %F_color_#{$color_name};
+        }
+      }
+    }
+  }
+  @each $color_name, $val in $color_list{
+    .bg-#{$color_name}{@extend %BG_#{$color_name};}
+    @if index($state_colors, $color_name){
+
+      .bg-hover-#{$color_name}{
+        @include hover(){
+          @extend %BG_#{$color_name};
+        }
+      }
+      .bg-active-#{$color_name}{
+        @include active(){
+          @extend %BG_#{$color_name};
+        }
+      }
+
+    }
+  }
+}
+
+@mixin root-color-variables(){
+  @each $color_name, $color in $color_list {
+    $c_name: to-lower-case($color_name);
+    $c_name: str-replace($c_name, ' ', $replace: '-');
+    --c-#{$c_name} : #{$color};
+    @each $alpa in $color_alpha{
+      --c-#{$c_name}-#{$alpa} : #{ transparentize($color, (1 - (0.01*$alpa))) };
+    }
+    @each $darken in $color_darken{
+      --c-#{$c_name}-darken-#{$darken} : #{ darken( $color, ($darken) ) };
+    }
+    @each $lightness in $color_lightness{
+      --c-#{$c_name}-lightness-#{$lightness} : #{ lighten($color, ($lightness) ) };
+    }
+  }
+}

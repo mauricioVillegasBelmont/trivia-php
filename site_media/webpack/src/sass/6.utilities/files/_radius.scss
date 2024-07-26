@@ -1,0 +1,31 @@
+@include selector_extendible_generator('bradius','',()){
+    --border-radius: calc(var(--fs-value) / 4);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+  &__list{
+    &:first-child{
+      @extend %bradius;
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+    &:last-child{
+      @extend %bradius;
+      border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+  }
+  &--round{
+    @extend %bradius;
+    --border-radius: 50%;
+  }
+  &--1{
+    @extend %bradius;
+    --border-radius: calc( var(--fs-value) / 3 );
+  }
+  &--2{
+    @extend %bradius;
+    --border-radius: calc( var(--fs-value) / 2 );
+  }
+  &--3{
+    @extend %bradius;
+    --border-radius: var(--fs-value);
+  }
+}

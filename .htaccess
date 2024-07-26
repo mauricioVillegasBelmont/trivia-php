@@ -1,0 +1,7 @@
+RewriteEngine On
+RewriteRule !(^static|^site_media|^uploadfiles|^core/helpers/files.php$|favicon) app_engine.php
+RewriteRule ^uploadfiles core/helpers/files.php
+AddType image/x-icon .ico
+RewriteRule ^favicon favicon.ico [NC,L]
+
+RewriteRule \.(git|svn)(/.*)?$ - [F,NC]

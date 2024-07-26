@@ -1,0 +1,98 @@
+.btn{
+  @extend %display-block;
+  user-select: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  @include disabled(){
+    cursor: auto;
+    pointer-events: none;
+  };
+}
+.menu-btn{
+  background-color: transparent;
+}
+.text-btn{
+  padding: px_to_rem(10) px_to_rem(15);
+  border-radius: px_to_rem(10);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  @include hover(){
+    box-shadow:none;
+  }
+  @include disabled(){
+    background-color: color_var('gray-extralight') !important;
+    color: color_var('gray') !important;
+  }
+
+  &.next,&.back{
+    display: flex;
+    align-items: center;
+  }
+  &.next::after,&.back::before{
+    font-family: 'idea605-icons' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    width: calc(var(--fs-value) *1.5);
+    height: calc(var(--fs-value) *1.5);
+    font-size: calc(var(--fs-value) *1.5);
+    @extend %display-inline-block;
+  }
+  &.chevron-next::after{
+    content: $icon-chevron-right;
+    margin-left: calc(var(--fs-value) *.5);
+  }
+  &.arrow-back::before{
+    content: $icon-arrow-left;
+    margin-right: calc(var(--fs-value) *.5);
+  }
+}
+.tab-btn{
+  padding: .5rem .75rem;
+  border-radius: .5rem .5rem 0 0;
+}
+.icon-btn{
+  background-color: transparent;
+  padding: 0;
+  &::before{
+    font-size: inherit;
+  }
+}
+
+.slick-dots{
+  @extend %display-flex;
+  @extend %justify-center;
+  padding-top: .5rem;
+  li[role="presentation"]{
+    @extend %display-flex;
+    @extend %align-center;
+    padding: 0 .175rem;
+    button{
+      cursor: pointer;
+      background-color: color_var('gray');
+      overflow: hidden;
+      color: transparent;
+      padding: .375rem;
+      border-radius: .375rem;
+      font-size:0;
+      border: 0;
+      transition: padding 500ms ease-out, background-color 500ms ease-out;
+    }
+    &.slick-active button{
+      padding: .375rem .75rem;
+    }
+  }
+}
+.slick-control{
+  --fs-value: 2rem;
+  font-size: var(--fs-value);
+  width: var(--fs-value);
+  z-index: 1;
+  @include media-breakpoint-up(lg){
+    --fs-value: #{px_to_rem(40)};
+  }
+}

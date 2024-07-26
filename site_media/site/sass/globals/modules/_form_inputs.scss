@@ -1,0 +1,113 @@
+.form{
+  @extend %mx-auto;
+  @extend %width-100;
+  // max-width: 400px;
+  input{
+    border: 0;
+  }
+  .form-group{
+    @extend %width-100;
+    label{
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+}
+%input-format{
+  margin: 0 auto;
+  padding: .5rem .75rem;
+  border-radius: 9px;
+  border: 1px solid;
+  &:focus{
+    border: 1px solid calor_var('black');
+    background-color: color_var('white');
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+  }
+  &:focus-visible {
+    outline:0;
+  }
+}
+.input-text,.input-select{
+  @extend %display-block;
+  @extend %width-100;
+  @extend %font-format;
+  @extend %input-format;
+
+}
+input[type="checkbox"],input[type="radio"]{
+  visibility: hidden;
+  z-index: 0;
+}
+select{
+  @extend %overflow-scroll;
+}
+.input-label{
+  cursor: pointer;
+  user-select: none;
+}
+.input-container-label{
+  width: calc(var(--fs-value) * 1.25);
+  height: calc(var(--fs-value) * 1.25);
+  font-size: calc(var(--fs-value) * 1.25);
+  user-select: none;
+  cursor: pointer;
+  input[type="checkbox"],input[type="radio"]{
+    @extend %trbl-0;
+    margin: auto;
+  }
+  i::after{
+    @extend %icons-font;
+    content: $icon-chekbox;
+    display: block;
+  }
+  input[type="checkbox"]:checked + i.check-mark::after,
+  input[type="radio"]:checked + i.check-mark::after{
+    content: $icon-chekbox-checked;
+  }
+  input[type="checkbox"]:checked + .check-mark.img-tick,
+  input[type="radio"]:checked + .check-mark.img-tick{
+    background-image: url('#{$CSS_IMAGES_PATH}/btn/check-mark.svg');
+  }
+}
+.input-hidden{
+  display: none;
+}
+.multi-select-wrapper{
+  label{
+    order: 0;
+    @extend %input-format;
+    width: 100%;
+  }
+  select{
+    order: 1;
+    position: absolute;
+    opacity: 0;
+    user-select: none;
+    pointer-events: none;
+
+    &:focus{
+      position: relative;
+      opacity: 1;
+      user-select: auto;
+      pointer-events: auto;
+      & + label{
+        display: none !important;
+      }
+    }
+  }
+  option{
+    &::before{
+      @extend %icons-font;
+      line-height: 1.75;
+      margin-right: 0.5rem;
+      font-size: 1.25rem;
+      content: $icon-chekbox;
+    }
+    &:checked,&[selected]{
+      &::before,
+      &::before{
+        content: $icon-chekbox-checked;
+      }
+    }
+  }
+}

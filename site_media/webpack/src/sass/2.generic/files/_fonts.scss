@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'Suzuki-Headline';
+    src: url('#{$FONT_FILE_PATH}/Suzuki-Headline.woff2') format('woff2'),
+         url('#{$FONT_FILE_PATH}/Suzuki-Headline.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suzuki';
+    src: url('#{$FONT_FILE_PATH}/Suzuki-Regular.woff2') format('woff2'),
+         url('#{$FONT_FILE_PATH}/Suzuki-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Suzuki';
+    src: url('#{$FONT_FILE_PATH}/Suzuki-Bold.woff2') format('woff2'),
+         url('#{$FONT_FILE_PATH}/Suzuki-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}

@@ -1,0 +1,230 @@
+%fs-width{
+  width: calc(var(--fs-value) * var(--scale));
+  height: calc(var(--fs-value) * var(--scale));
+}
+$font-families: (
+  "default": "system-ui",
+  "sans": "sans-serif",
+  "serif": "serif",
+  "fantasy": "fantasy",
+  "mono": "monospace",
+  'times':'"Times New Roman", Times, serif',
+  'serif':'Arial, Helvetica, sans-serif',
+) !default;
+@each $key, $Font in $font-families {
+  $font_class_name: to-lower-case($key);
+  $font_class_name: str-replace($font_class_name, ' ', $replace: '-');
+  .ff-#{$font_class_name}{
+    font-family: '#{$Font}';
+  }
+}
+
+p,ul,ol,ul li, ol li,time,label,table td, table th,span,mark{
+  &>*{
+    color: inherit;
+  }
+}
+
+%icon-list{
+  li::before{
+    @extend %icons-font;
+    font-size: calc(var(--fs-value) * 1.5);
+    margin-right: 0.5rem;
+  }
+}
+ul,ol{
+  &.inset{
+    list-style-position: outside;
+  }
+  &.outset{
+    list-style-position: inside;
+  }
+  &.tick{
+    @extend %icon-list;
+    li::before{
+      content: $icon-check-mark;
+    }
+  }
+  &.chevron{
+    @extend %icon-list;
+    li::before{
+      content: $icon-chevron-right;
+    }
+  }
+}
+.paragraph-wrapper a:not(.elipsis, .clip, .nowrap),
+a[href^="http://"]:not(.elipsis, .clip, .nowrap),
+a[href^="https://"]:not(.elipsis, .clip, .nowrap),
+a[target="_blank"]:not(.elipsis, .clip, .nowrap){
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+
+.h1{
+  --fs-value: 6.25rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 6.25rem;
+    }
+  }
+}
+.h2{
+  --fs-value: 3.4375rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 3.4375rem;
+    }
+  }
+}
+.h3{
+  --fs-value: 2.8125rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 2.8125rem;
+    }
+  }
+}
+.h4{
+  --fs-value: 2.5rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 2.5rem;
+    }
+  }
+}
+.h5{
+  --fs-value: 2.1875rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 2.1875rem;
+    }
+  }
+}
+.h6{
+  --fs-value: 1.4rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 1.4rem;
+    }
+  }
+}
+.display-1{
+  --fs-value:  4rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 5.125rem;
+    }
+  }
+}
+.display-2{
+  --fs-value:  3.125rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 5rem;
+    }
+  }
+}
+.fs-xl{
+  --fs-value: 1.875rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 1.875rem;
+    }
+  }
+}
+.fs-lg{
+  --fs-value: 1.5625rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 1.5625rem;
+    }
+  }
+}
+.fs-md{
+  --fs-value: 1.25rem;
+  &-lg{
+    @include media-breakpoint-up(lg){
+      --fs-value: 1.25rem;
+    }
+  }
+}
+
+
+.text,.fs-normal{
+  --fs-value: #{px_to_rem(16)};
+}
+.fs-small{
+  --fs-value: calc(#{px_to_rem(16)} * .875);
+}
+.fs-extrasmall{
+  --fs-value: calc(#{px_to_rem(16)} * .75);;
+}
+sub{ vertical-align: sub;}
+sup{ vertical-align: super;}
+.text-normal{
+  font-weight: normal;
+}
+.text-semibold{
+  font-weight: 600;
+}
+strong,b,.text-bold{
+  font-weight: 700;
+}
+.text-bolder{
+  font-weight: 800;
+}
+u,.text-underline,.hover-text-underline:hover{
+  text-decoration: underline;
+}
+.box-underline{
+  border: 0;
+  border-bottom: 1px solid;
+}
+.hover-box-underline{
+  border: 0;
+  &:hover{
+    border-bottom: 1px solid;
+  }
+}
+em,.style-italic{
+  font-style: italic;
+}
+.style-oblique{
+  font-style: oblique;
+}
+.style-normal{
+  font-style: normal;
+}
+.paragraph-wrapper{
+  p:not(:last-child){
+    margin-bottom: calc(var(--fs-value) * .75);
+  }
+  li:not(:last-child){
+    margin-bottom: calc(var(--fs-value) * .75);
+  }
+}
+$font_weight: false !default;
+@if $font_weight {
+  @for $i from 1 through 9 {
+    .fw-#{(100 * $i)}{@extend %font-#{$i*100};}
+  }
+}
+.fw-bold{
+  font-weight: bold;
+}
+.fw-bolder{
+  font-weight: bolder;
+}
+.text-center{@extend %text-center;}
+.text-right{@extend %text-right;}
+.text-left{@extend %text-left;}
+.text-justify{@extend %text-justify;}
+$text_justify_utilities: false !default;
+@if $text_justify_utilities{
+  @include text-justify-utilities();
+}

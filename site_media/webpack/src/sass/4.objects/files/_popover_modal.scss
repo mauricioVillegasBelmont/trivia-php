@@ -1,0 +1,21 @@
+// dialog,.modal,.modal-dialog
+@include selector_extendible_generator('pop ','',()){
+  @extend %overflow-scroll;
+  border: 0;
+  max-width: calc(100vw - 3.5rem);
+  box-shadow: 3px 3px 5px 0 rgba(0,0,0,.5);
+
+  &__modal{
+    @extend %pop;
+    @extend %wrapper__readable--45-75;
+    max-height:75dvh;
+  }
+
+  &--backdrop{
+    &::backdrop,& .overlay{
+      // @extend %z--n;
+      backdrop-filter: blur(3px);
+      background-color: rgba(0,0,0,.5);
+    }
+  }
+}

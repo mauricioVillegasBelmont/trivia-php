@@ -1,0 +1,73 @@
+%container--base{
+  @extend %w--100;
+  @extend %mx--auto;
+}
+.container{
+  @extend %container--base;
+  max-width: 1120px;
+  &--fluid{
+    @extend %container--base;
+    max-width: 100%;
+  }
+  &--camioneta{
+    max-width: 90vw;
+    @include media-breakpoint-up(lg){
+      max-width: 1120px;
+    }
+  }
+  @include  container_constructor($container_breakpoints);
+}
+
+.row{
+  @extend %d--flex;
+  @extend %flex__direction--row;
+  @extend %flex__wrap--wrap;
+  row-gap: var(--row-gap);
+}
+%gap-column{
+  padding-left:  calc( var(--col-gap) / 2 );
+  padding-right: calc( var(--col-gap) / 2 );
+}
+%gap-row{
+  padding-top:  calc( var(--col-gap) / 2 );
+  padding-bottom: calc( var(--col-gap) / 2 );
+}
+.col--gap{
+  column-gap: var(--col-gap);
+  &--0{
+    --col-gap:0;
+  }
+}
+.row--gap{
+  row-gap: var(--row-gap);
+  &--0{
+    --row-gap:0;
+  }
+}
+.px--gap{
+  @extend %gap-column;
+}
+.py--gap{
+  @extend %gap-row;
+}
+
+@include  col_bulk_constructor($grid_breakpoints, $grid-columns);
+
+@include selector_extendible_generator( 'wrapper','readable',('min')){
+  min-width: 45ch;
+}
+@include selector_extendible_generator( 'wrapper','readable',('max')){
+  max-width: 75ch;
+}
+@include selector_extendible_generator( 'wrapper','readable',('45')){
+  width: 45ch;
+}
+@include selector_extendible_generator( 'wrapper','readable',('45-75')){
+  width: clamp( 45ch, calc(100dvw - 3.5rem), 75ch );
+}
+.wrapper__read{
+  @extend %wrapper__readable--min;
+}
+.wrapper__read--standar{
+  @extend %wrapper__readable--45-75;
+}

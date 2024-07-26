@@ -1,0 +1,38 @@
+$font-families: (
+  "default": "system-ui",
+  "sans": "sans-serif Arial, Helvetica, sans-serif",
+  'serif':'"Times New Roman", Times, serif',
+  "fantasy": "fantasy",
+  "mono": "monospace",
+) !default;
+
+$font-weights:(
+  100,200,300,400,500,600,700,800,900
+) !default;
+$font-weights-keys:(
+  lighter:100,
+  normal:400,
+  bold:700,
+  bolder:900,
+) !default;
+
+
+$font_weight_utilities: true !default;
+$text_align_utilities: true !default;
+$gobal_lineheigt:1.25 !default;
+
+
+// /* https://www.toptal.com/designers/htmlarrows/arrows/ */
+$icon-chekbox:'\2610' !default; // ⭵
+$icon-chekbox-checked:'\2611' !default; // ⮽
+
+$icon-radio:'\1F785' !default; // ⮽
+$icon-radio-checked:'\25C9' !default; // ⮽
+
+$icon-check-mark: '\2713' !default; //✓
+$icon-chevron-right: '\203A' !default; //›
+$icon-chevron-left: '\2039' !default; //›
+$icon-arrow-left: '\2190' !default; //←
+$icon-arrow-right: '\2192' !default; //←
+$icon-quote: '\201C' !default;
+$icon-black-square: '\25A0' !default;

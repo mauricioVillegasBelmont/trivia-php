@@ -1,0 +1,50 @@
+@include global_color_classes($color_list);
+@include alpha_colors_generator($state_colors, $alpha_steps);
+
+
+
+@include color_mixer_class();
+@include color_mix_generator();
+@include color_mix_generator('mix_test','success',.75,'danger',.25);
+
+@include selector_extendible_generator('grad','',()){
+  &__test{
+    @include linear-gradient(to bottom, #1e5799 0%,#7db9e8 100%);
+  }
+}
+
+
+.bg__grad--black--tundora{
+  @include linear-gradient(to bottom, #{color_var('black')} 5%, #{color_var('tundora')} 95%);
+}
+
+.bg__frosted{
+  background: var(--Gradient-forsted, linear-gradient(180deg, rgba(55, 56, 56, .6) 18%, rgba(152, 152, 152, 0.6) 100%));
+  backdrop-filter: blur(5px);
+}
+
+.bg__lanscape{
+  @include site_background_image('/bg/landscape.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.bg__lanscape--gracias{
+  @include site_background_image('/bg/trivia_gracias.png');
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 107 / 57;
+  @include media-breakpoint-up(lg){
+    @include site_background_image('/bg/trivia_gracias-lg.png');
+    aspect-ratio: 192 / 65;
+  }
+}
+.bg__lanscape--trivia{
+  @include site_background_image('/bg/trivia-sm.jpg');
+  background-size: cover;
+  background-position: center;
+  aspect-ratio: 107 / 57;
+  @include media-breakpoint-up(lg){
+    @include site_background_image('/bg/trivia-lg.jpg');
+    aspect-ratio: 192 / 65;
+  }
+}

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta name="robots" content="noindex" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{PNL_TITLE}</title>
+
+    
+
+    <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="{PANEL_ASSETS}/css/panel.css" />
+    <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="{PANEL_ASSETS}/css/panel-custom.css" />
+    <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="{PANEL_ASSETS}/css/dataTables.min.css" />
+    <link rel="preload" as="style" onload="this.onload=null; this.rel='stylesheet'" href="{PANEL_ASSETS}/css/sweetalert2.min.css" />
+    <noscript>
+      <link rel="stylesheet" href="{PANEL_ASSETS}/css/panel.css" />
+      <link rel="stylesheet" href="{PANEL_ASSETS}/css/panel-custom.css" />
+      <link rel="stylesheet" href="{PANEL_ASSETS}/css/dataTables.min.css" />
+      <link rel="stylesheet" href="{PANEL_ASSETS}/css/sweetalert2.min.css" />
+    </noscript>
+    <script src="{PANEL_ASSETS}/js/jquery-3.7.0.min.js"></script>
+    <script src="{PANEL_ASSETS}/js/bootstrap@5.0.2.min.js"></script>
+    <script src="{PANEL_ASSETS}/js/popper@2.9.2.min.js"></script>
+    <script src="{PANEL_ASSETS}/js/dataTables.min.js"></script>
+    <script src="{PANEL_ASSETS}/js/sweetalert2.all.min.js"></script>
+
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    {HEAD_IMPORTS}
+    <script type="text/javascript">
+      var conf = {}
+      var triggers = {}
+    </script>
+  </head>
+  <body class="sb-nav-fixed">
+    <header class="sb-topnav navbar navbar-expand navbar-dark bg-black">
+      <!-- Navbar Brand-->
+      <a class="navbar-brand ps-3" href="/dashboard">{APP_NAME}</a>
+      <!-- Sidebar Toggle-->
+      <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
+          class="fas fa-bars"></i></button>
+      <!-- Navbar Search-->
+      <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <!-- <div class="input-group">
+          <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..."
+            aria-describedby="btnNavbarSearch" />
+          <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div> -->
+      </form>
+      <!-- Navbar-->
+      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i> <span class="d-none d-md-inline">| {USERNAME}</span></a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/panel/user/editar/{UID}"><i class="fa fa-cog"></i> Editar</a></li>
+            <li>
+              <hr class="dropdown-divider" />
+            </li>
+            <li><a class="dropdown-item" href="/logout"><i class="fa fa-sign-out"></i> Salir</a></li>
+          </ul>
+        </li>
+      </ul>
+    </header>
+    <div id="layoutSidenav">
+      <!-- SIDE NAV CONTROL -->
+      <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+          <div class="sb-sidenav-menu">
+            <div class="nav">
+              <!--MENU-ITEM-->
+              {ITEM}
+              <!--MENU-ITEM-->
+            </div>
+          </div>
+          <div class="sb-sidenav-footer">
+            <small class="small-1 d-block mb-1">Logged in as:</small>
+            <p class="small mb-0"><i class="fa fa-user"></i> {USERNAME} | <b>{LEVEL}</b></p>
+          </div>
+        </nav>
+      </div>
+      <!-- SIDE NAV CONTROL -->
+      <div id="layoutSidenav_content">
+        <main>
+          <div class="container-fluid px-4">
+            <h1 class="h3 mt-4">{PNL_TITLE}</h1>
+            <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item active">Dashboard</li>
+            </ol>
+            {CONTENIDO}
+          </div>
+        </main>
+        <footer class="py-2 bg-light mt-auto">
+          <div class="container-fluid px-4">
+            <div class="row align-items-center justify-content-between small">
+              <div class="col col-12 col-lg-auto">
+                <a href="https://pymeweb.mx/" target="_blank" class="text-dark small">{PNL_COPYRIGHT_TXT} &copy;{YEAR}</a>
+              </div>
+              <div class="col col-lg-4 text-lg-end">
+                <a href="#" class="text-dark small">Privacy Policy</a>
+                &middot;
+                <a href="#" class="text-dark small">Terms &amp; Conditions</a>
+              </div>
+            
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    
+
+
+
+
+  
+
+  
+  <script src="{PANEL_ASSETS}/js/panel-GUI.js"></script>
+  {FOOTER_IMPORTS}
+  </body>
+</html>

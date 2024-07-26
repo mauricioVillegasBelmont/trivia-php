@@ -1,0 +1,19 @@
+.scroll-wrapper{
+  @extend %overflow-scroll;
+}
+.clearfix {
+  @include clearfix();
+}
+.o--hidden{
+  overflow: hidden;
+}
+.v--hidden{
+  visibility: hidden;
+}
+
+.overlap{
+  position: relative;
+  z-index: 2;
+  transform: translateY(-5vh);
+
+}

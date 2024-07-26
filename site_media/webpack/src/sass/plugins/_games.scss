@@ -1,0 +1,59 @@
+body{
+  &.skin-1{
+    @extend %background-cover;
+    background: var(--grad-game-1);
+    @include media-breakpoint-up(lg){
+      background-image:site_background_image('/bg/usr-bg.jpg');
+    }
+    .data-game-row:not(:last-child){
+      border-bottom: 2px solid color_var('Ceil');
+    }
+    .score-table .healt.active{
+      background-image: site_background_image('/skin-1/health.svg');
+    }
+  }
+
+
+}
+.score-table{
+  .score,
+  .time,
+  .health{
+    @include media-breakpoint-up(md){
+      font-size: 1.5rem;
+    }
+    @include media-breakpoint-up(lg){
+      font-size: 1.75rem;
+    }
+  }
+  .health-meter{
+    @include media-breakpoint-up(md){
+      max-width: 420px;
+    }
+    .healt{
+      @extend %background-center-icon;
+      background-size: 80%;
+      @include  aspect-ratio(115, 111);
+      width: calc(calc(100% / 5) - .75rem);
+      max-width: 2.5rem;
+      max-height: 2.5rem;
+      border-radius: .5rem;
+      overflow: hidden;
+    }
+  }
+}
+// ´puertas
+.game-puertas-wrapper{
+  max-width: 58vh;
+  @include aspect-ratio(1,1);
+}
+.game-code-wrapper{
+  max-width: 58vh;
+  @include aspect-ratio(25, 23);
+}
+#game{
+  z-index: 999999;
+}
+#timer{
+  font-variant-numeric: tabular-nums;
+}

@@ -1,0 +1,301 @@
+
+@include font_family_generator();
+
+@include texttags-default-setup(){
+  @extend %font-format;
+}
+
+.h1{
+  --fs-value: 1.875rem;
+  @include media-breakpoint-up(lg){
+    &{
+      --fs-value: 3.75rem;
+    }
+  }
+  @include media-breakpoint-up(lg, true){
+    &--lg{
+      --fs-value: 3.75rem;
+    }
+  }
+}
+.h2{
+  --fs-value: 2.1875rem;
+  @include media-breakpoint-up(lg){
+    &{
+      --fs-value: 3.125rem;
+    }
+  }
+  @include media-breakpoint-up(lg, true){
+    &--lg{
+      --fs-value: 3.125rem;
+    }
+  }
+}
+.h3{
+  --fs-value: 1.875rem;
+  @include media-breakpoint-up(lg){
+    &{
+      --fs-value: 2.8125rem;
+    }
+  }
+  @include media-breakpoint-up(lg, true){
+    &--lg{
+      --fs-value: 2.8125rem;
+    }
+  }
+}
+.h4{
+  --fs-value: 1.5625rem;
+  @include media-breakpoint-up(lg){
+    &{
+      --fs-value: 2.1875rem;
+    }
+  }
+  @include media-breakpoint-up(lg, true){
+    &--lg{
+      --fs-value: 2.1875rem;
+    }
+  }
+}
+.h5{
+  --fs-value: 1.25rem;
+  @include media-breakpoint-up(lg){
+    &{
+      --fs-value: 1.875rem;
+    }
+  }
+  @include media-breakpoint-up(lg, true){
+    &--lg{
+      --fs-value: 1.875rem;
+    }
+  }
+}
+.h6{
+  --fs-value: 0.9375rem;
+  @include media-breakpoint-up(lg){
+    &{
+      --fs-value: 1.5625rem;
+    }
+  }
+  @include media-breakpoint-up(lg, true){
+    &--lg{
+      --fs-value: 1.5625rem;
+    }
+  }
+}
+
+// _font_clamp_calc($min, $max, $max_b_key: lg, $min_b_key: xs)
+.fs__clamp--1{
+  --fs-value: #{_font_clamp_calc(1.75rem, 3.5rem, lg, xs)};
+}
+.fs__clamp--2{
+  --fs-value: #{_font_clamp_calc(1rem, 3rem, lg)};
+}
+.fs__clamp--3{
+  --fs-value: #{_font_clamp_calc(.8rem, 1.5rem, lg)};
+}
+
+.fs--extralarge{
+  --fs-value: calc(#{$gobal_font_size} * 1.75);
+}
+.fs--large{
+  --fs-value: calc(#{$gobal_font_size} * 1.5);
+}
+.fs--medium{
+  --fs-value: calc(#{$gobal_font_size} * 1.25);
+}
+.text,.fs--normal{
+  --fs-value: #{$gobal_font_size};
+}
+.fs--small{
+  --fs-value: calc(#{$gobal_font_size} * .8);
+}
+.fs--extrasmall{
+  --fs-value: calc(#{$gobal_font_size} * .64);
+}
+
+
+@include  oocss_extend_generator('fw', '', (), $font_weights, 'font-weight', false, $font_weight_utilities);
+@include font_weight_defaults();
+
+
+@include  oocss_extend_generator('fs', '', (), $font_styles, 'font-style', false, true);
+em{
+  @extend %fs--italic;
+}
+
+
+
+u,ins,
+.txt--underline,.hover-txt--underline:hover{
+  text-decoration: underline;
+}
+.box--underline{
+  border: 0;
+  border-bottom: 1px solid;
+}
+.hover-box--underline{
+  border: 0;
+  @include hover(){
+    border-bottom: 1px solid;
+  }
+}
+del,strike, s,
+.txt--strike{
+  text-decoration: line-through;
+}
+
+
+%perfect_square_char{
+  width: calc(var(--fs-value) * var(--scale));
+  height: calc(var(--fs-value) * var(--scale));
+}
+%icon-font{
+  speak: never;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+%icon-list{
+  li{
+    padding-left: .75rem;
+    &::marker{
+      @extend %icon-font;
+      font-size: calc(var(--fs-value) * var(--scale));
+    }
+  }
+}
+menu,ul,ol{
+  &.inset{
+    list-style-position: inside;
+  }
+  &.outset{
+    list-style-position: outside;
+  }
+  &.tick{
+    @extend %icon-list;
+    li::marker{
+      content: quote(#{$icon-check-mark});
+    }
+  }
+  &.chevron{
+    @extend %icon-list;
+    li::marker{
+      content: quote(#{$icon-chevron-right});
+    }
+  }
+  &.black-square{
+    @extend %icon-list;
+    li::marker{
+      content: quote(#{$icon-black-square});
+    }
+  }
+  &.img_num{
+    // --scale: 3.4;
+    // --icon-sizer: calc(var(--fs-value) * var(--scale));
+    --icon-sizer: 3rem;
+    li{
+      @extend %p--relative;
+      min-height:var(--icon-sizer);
+      @include media-breakpoint-up(lg){
+        padding-left: calc(var(--icon-sizer) + .75rem );
+      }
+
+      &::before{
+        content: '';
+        @extend %d--block;
+        @extend %p--lg--absolute;
+        // left: calc(var(--icon-sizer) + .75rem );
+        left: 0;
+        top: 0;
+        width: var(--icon-sizer);
+        height: var(--icon-sizer);
+        background-size: contain;
+        margin: 0 auto .75rem;
+
+        @include media-breakpoint-up(lg){
+          margin:0;
+        }
+      }
+
+      &:nth-child(1)::before{
+        background-image: site_background_image('/icons/1.svg'); //url(../img/icons/1.png);
+      }
+      &:nth-child(2)::before{
+        background-image: site_background_image('/icons/2.svg');
+      }
+      &:nth-child(3)::before{
+        background-image: site_background_image('/icons/3.svg');
+      }
+      &:nth-child(4)::before{
+        background-image: site_background_image('/icons/4.svg');
+      }
+    }
+  }
+}
+.fi{
+  @extend %icon-font;
+  &--arrow-left{
+    &::before{
+      display: inline-block;
+      font-size: calc(var(--fs-value) * var(--scale));
+      content: quote(#{$icon-arrow-left});
+    }
+  }
+  &--img{
+    display: inline-block;
+    aspect-ratio: 1;
+    width: calc(var(--fs-value) * var(--scale));
+    img{
+      object-fit: contain;
+      height: 100%;
+    }
+  }
+}
+
+@include selector_extendible_generator( 'text','',('break')){
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+}
+.wrapper__content{
+  &.safe-read{
+    @extend %wrapper__readable--45;
+  }
+  p:not(:last-child){
+    margin-bottom: calc(var(--fs-value) * 1.25);
+  }
+  li:not(:last-child){
+    margin-bottom: calc(var(--fs-value) * 1.25);
+  }
+  a{
+    @extend %text--break;
+  }
+}
+a[href^="http://"],
+a[href^="https://"],
+a[target="_blank"]{
+  @extend %text--break;
+}
+
+
+
+@include selector_content_generator('text','overflow','','%'){
+  white-space: nowrap;
+  overflow: hidden;
+}
+.text__overflow--elipsis{
+  @extend %text__overflow;
+  text-overflow: ellipsis;
+}
+.text__overflow--clip{
+  @extend %text__overflow;
+  text-overflow: clip;
+}
+
+
+
+@include  oocss_extend_generator_full('text', '', (), $text_align_array, 'text-align', false, $text_align_utilities);

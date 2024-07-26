@@ -1,0 +1,16 @@
+@use "sass:meta";
+@use "sass:math";
+@use 'sass:list';
+@use "sass:map";
+
+@function _divide($a, $b){
+  $c: math.div($a, $b);
+  @return $c;
+}
+
+@function _is_unit($val,$u:px, $is:true){
+  @if $is {
+    @return $u == math.unit($val);
+  }
+  @return $u != math.unit($val);
+}

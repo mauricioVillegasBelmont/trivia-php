@@ -1,0 +1,24 @@
+.main_header{
+  border-bottom: 1px solid color_var('silver-sand');
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  &__logo{
+    width: 10rem;
+    max-width: 33vw;
+  }
+  &__menu{
+    @extend %z--1;
+    margin-top: var(--header-h);
+    margin-left: .75rem;
+  }
+}
+.main_footer{
+  border-top: 3px solid #{color_var('gray-suit')};
+  @include media-breakpoint-up(lg){
+    padding-left: var(--side-w);
+    padding-right: var(--side-w);
+  }
+}
+
+.inner_page--logos{
+  border-bottom: 2px solid #{color_var('white')};
+}

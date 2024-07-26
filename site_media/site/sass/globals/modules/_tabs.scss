@@ -1,0 +1,22 @@
+.tabs-btn-group{
+  z-index: 1;
+  top: 0;
+  .tab-btn{
+    background-color: transparent;
+    border-bottom: 2px solid color_var('white');
+    a{
+      padding: .5rem 1rem;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    @include hover(){
+      background-color: rgba(255, 255, 255, 0.10);
+      border-bottom: 2px solid color_var('bright-turquoise');
+    }
+    &.ui-tabs-active{
+      background-color: rgba(255, 255, 255, 0.10);
+      border-bottom: 2px solid color_var('bright-turquoise');
+    }
+  }
+}

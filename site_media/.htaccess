@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+	Options -Indexes
+
+	RewriteEngine On
+
+
+	# Redirige cualquier solicitud que corresponda a un directorio existente y que no tenga un archivo index en ese directorio a la raíz del sitio.
+	RewriteCond %{REQUEST_FILENAME} -d
+	RewriteCond %{REQUEST_FILENAME}/index\.(html|php) !-f
+	RewriteRule ^ / [R=302]
+
+	# Evitar peticiones para archivos con cualquier extensión en el directorio 'webpack'.
+	RewriteCond %{REQUEST_URI} /webpack/.*\..*$
+	RewriteRule ^ - [F]
+
+</IfModule>

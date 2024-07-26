@@ -1,0 +1,50 @@
+// display
+%display-block{
+  display: block;
+}
+%display-none{
+  display: none;
+}
+%display-inline{
+  display: inline;
+}
+%display-inline-block{
+  display: inline-block;
+}
+%display-grid{
+  display: grid;
+}
+%display-flex{
+  @include flexbox();
+}
+%display-inline-flex{
+  @include inline-flex();
+}
+@each $breakpoint-name, $breakpoint-value in $breakpoints{
+  @if ( $breakpoint-value != 0){
+    @include media-breakpoint-up($breakpoint-name){
+      // display
+      %display-block-#{$breakpoint-name}{
+        display: block;
+      }
+      %display-none-#{$breakpoint-name}{
+        display: none;
+      }
+      %display-inline-#{$breakpoint-name}{
+        display: inline;
+      }
+      %display-inline-block-#{$breakpoint-name}{
+        display: inline-block;
+      }
+      %display-grid-#{$breakpoint-name}{
+        display: grid;
+      }
+      %display-flex-#{$breakpoint-name}{
+        @include flexbox();
+      }
+      %display-inline-flex-#{$breakpoint-name}{
+        @include inline-flex();
+      }
+    }
+  }
+}

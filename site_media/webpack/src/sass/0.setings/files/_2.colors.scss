@@ -1,0 +1,30 @@
+$root_colors: true;
+$color_list : (
+  "white"    : #FFFFFF,
+  "black"    : #1c1c1c,
+  "gray"    : #86898d,
+  "gray-light"    : #d3d3d3,
+  "gray-extralight"    : #f1f1f1,
+  "danger"    : #DC3545,
+  "success"    : #28A745,
+
+  "tundora": #4E4E4E,
+  "french-pass": #BEFAFD,
+  "mine-shaft": #292727,
+  "ebony": #09111C,
+  "eden": #155F58,
+  "silver-sand": #B7BABA,
+  "gray-suit": #CECCD0,
+  "alto": #D9D9D9,
+);
+$state_colors:(
+  'white',
+  "danger",
+  "success",
+  "alert",
+  'Picton',
+);
+
+$alpha_steps: 4; // valores ente 1 y 10
+$darken_steps: 4; // valores ente 1 y 10
+$lightness_steps: 4; // valores ente 1 y 10

@@ -1,0 +1,15 @@
+$order_utilities: 0 !default;
+@if (type-of($order_utilities) == number) and ($order_utilities > 0) {
+  @for $i from 0 through $order_utilities {
+    %order-#{$i}{
+      @include order($i);
+    }
+    @each $breakpoint-name, $breakpoint-value in $breakpoints{
+      @include media-breakpoint-up($breakpoint-name){
+        %order-#{$i}-#{$breakpoint-name}{
+          @include order($i);
+        }
+      }
+    }
+  }
+}

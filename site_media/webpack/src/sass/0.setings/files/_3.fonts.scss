@@ -1,0 +1,33 @@
+$font_weight_utilities: true;
+$text_align_utilities: true;
+$gobal_font_size:1rem;
+$gobal_lineheight:1.25;
+
+
+$font-families: (
+  "default": "Suzuki",
+  "Suzuki": "Suzuki",
+  "headline": "Suzuki-Headline",
+  "system": "system-ui",
+  "sans": "sans-serif Arial, Helvetica, sans-serif",
+  'serif':'"Times New Roman", Times, serif',
+  "fantasy": "fantasy",
+  "mono": "monospace",
+);
+
+$font_weights:(
+  100,200,300,400,500,600,700,800,900
+) !default;
+$font_weights_keys:(
+  100:'lighter',
+  400:'normal',
+  700:'bold',
+  900:'bolder',
+);
+
+$font_styles:('italic','oblique','normal');
+
+$min-char-readable-line-leghth: 45;
+$max-char-readable-line-leghth: 75;
+
+$text_align_array:('left','center','right','justify') !default;

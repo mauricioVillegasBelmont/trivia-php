@@ -1,0 +1,11 @@
+.small-1{
+    font-size: .75rem;;
+}
+.consoleCSV {
+    background: #0f0314;
+    color: #73b163;
+    width: 100%;
+    min-height: 400px;
+    overflow: scroll;
+    padding: 10px;
+}

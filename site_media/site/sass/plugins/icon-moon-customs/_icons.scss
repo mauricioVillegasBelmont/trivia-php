@@ -1,0 +1,112 @@
+@import 'icon_variables';
+@import 'icons-font-extends';
+
+[class^="icon-"], [class*=" icon-"],.icon {
+  @extend %icons-font;
+}
+
+.icon-accept {
+  &:before {
+    content: $icon-accept;
+  }
+}
+.icon-accept-filled {
+  &:before {
+    content: $icon-accept-filled;
+  }
+}
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left;
+  }
+}
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right;
+  }
+}
+.icon-behance {
+  &:before {
+    content: $icon-behance;
+  }
+}
+.icon-cancel {
+  &:before {
+    content: $icon-cancel;
+  }
+}
+.icon-cancel-filled {
+  &:before {
+    content: $icon-cancel-filled;
+  }
+}
+.icon-cart {
+  &:before {
+    content: $icon-cart;
+  }
+}
+.icon-chekbox {
+  &:before {
+    content: $icon-chekbox;
+  }
+}
+.icon-chekbox-checked {
+  &:before {
+    content: $icon-chekbox-checked;
+  }
+}
+.icon-chevron-left {
+  &:before {
+    content: $icon-chevron-left;
+  }
+}
+.icon-chevron-right {
+  &:before {
+    content: $icon-chevron-right;
+  }
+}
+.icon-close {
+  &:before {
+    content: $icon-close;
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook;
+  }
+}
+.icon-instagram {
+  &:before {
+    content: $icon-instagram;
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin;
+  }
+}
+.icon-menu {
+  &:before {
+    content: $icon-menu;
+  }
+}
+.icon-quote {
+  &:before {
+    content: $icon-quote;
+  }
+}
+.icon-radio-checked {
+  &:before {
+    content: $icon-radio-checked;
+  }
+}
+.icon-radio-empty {
+  &:before {
+    content: $icon-radio-empty;
+  }
+}
+.icon-radio-empty-filled {
+  &:before {
+    content: $icon-radio-empty-filled;
+  }
+}

@@ -1,0 +1,65 @@
+%icons-font{
+  speak: never;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+%font-lighter{
+  font-weight: lighter;
+}
+%font-normal{
+  font-weight: normal;
+}
+%font-bold{
+  font-weight: bold;
+}
+%font-bolder{
+  font-weight: bolder;
+}
+
+$fw_steps: 9 !default;
+@for $i from 1 through $fw_steps{
+  %font-#{(100*$i)}{
+    font-weight: #{(100*$i)} !important;
+  };
+}
+%font-format{
+  line-height: var(--f-linehight-value);
+  font-weight: var(--fw-value);
+  font-family: var(--ff-value);
+  font-size: var(--fs-value);
+}
+
+
+%text-center{
+  text-align: center;
+}
+%text-right{
+  text-align: right;
+}
+%text-left{
+  text-align: left;
+}
+%text-justify{
+  text-align: justify;
+}
+@each $breakpoint-name, $breakpoint-value in $breakpoints{
+  @if ( $breakpoint-value != 0){
+    @include media-breakpoint-up($breakpoint-name){
+      %text-center-#{$breakpoint-name}{
+        text-align: center;
+      }
+      %text-right-#{$breakpoint-name}{
+        text-align: right;
+      }
+      %text-left-#{$breakpoint-name}{
+        text-align: left;
+      }
+      %text-justify-#{$breakpoint-name}{
+        text-align: justify;
+      }
+    }
+  }
+}

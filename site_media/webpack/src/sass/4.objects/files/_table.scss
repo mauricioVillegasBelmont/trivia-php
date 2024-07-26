@@ -1,0 +1,73 @@
+@include selector_extendible_generator('table','',()){
+  border-collapse: collapse;
+  th,td{
+    padding-left:calc(var(--col-gap) / 2 );
+    padding-right:calc(var(--col-gap) / 2 );
+    padding-top:calc(var(--row-gap) / 2 );
+    padding-bottom:calc(var(--row-gap) / 2 );
+  }
+  &__responsive{
+    @extend %p--relative;
+    @extend %overflow-scroll;
+    max-width: calc(100dvw - var(--col-gap));
+    max-height: 75dvh;
+    overflow: auto;
+    width: fit-content;
+  }
+  &__stiky{
+    thead,.thead{
+      tr{
+        th{
+          background-color: rgba(157, 157, 157, .95) !important;
+          &:first-child{
+            z-index: 3;
+          }
+        }
+      }
+    }
+    th,.th{
+      @extend %z--1;
+      position: sticky;
+      top: 0;
+      &:first-child,&[scope="row"]{
+        left: 0;
+        z-index: 2;
+        // background: white !important;
+      }
+      &[scope="col"]:first-child{
+        z-index: 3;
+      }
+    }
+  }
+  &--hr{
+    tr:not(:last-child){
+      border-bottom: 1px solid;
+    }
+  }
+  &--vl{
+    th:not(:last-child),td:not(:last-child){
+      border-right: 1px solid;
+    }
+  }
+
+  &--striped{
+    tr:nth-child(odd){
+      th,td{
+          background-color:rgba(255,255,255,.03125);
+      }
+    }
+  }
+  &--hover{
+    tr{
+      @include hover(){
+        // background-color: color_var('white') !important;
+        th,td{
+          @include linear-gradient(
+            rgba(0,0,0,.0625), rgba(0,0,0,.0625)
+          );
+        }
+      }
+    }
+  }
+
+}

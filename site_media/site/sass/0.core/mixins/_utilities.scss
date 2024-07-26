@@ -1,0 +1,5 @@
+// SITE_ASSETS
+$CSS_IMAGES: '/site_media/site/img' !default;
+@mixin site_background_image($img){
+  background-image: url('#{$CSS_IMAGES}#{$img}');
+}

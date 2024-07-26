@@ -1,0 +1,47 @@
+// @use "sass:math";
+//is in list value
+@function in_list($value, $list) {
+  @return (false != index($list, $value));
+}
+
+@function _divide($a, $b){
+  // $c: math.div($a, $b);
+  $c: ($a / $b);
+  @return $c;
+}
+@function empty_value($value) {
+  @if not $value or $value == "" or $value == 0 or $value == () or length($value) == 0 {
+    @return true;
+  }
+  @return false;
+}
+
+//font utilities
+$html-font-size: 16px !default;
+@function stripUnit($value) {
+  @return _divide($value, ($value * 0 + 1));
+}
+@function px_to_rem($pxValue){
+  @return #{  _divide(stripUnit($pxValue), stripUnit($html-font-size)) }rem;
+}
+
+
+$ASSET_VERSION: ''  !default;
+$CSS_IMAGES_PATH: '/'  !default;
+@function site_background_image($img){
+  $bg_img: $CSS_IMAGES_PATH + $img;
+  $empty: empty_value($ASSET_VERSION);
+  $_v: '';
+  @if not ( $empty ) {
+    $_v: '?v=';
+  }
+  @return url(unquote("#{$bg_img}#{$_v}#{$ASSET_VERSION}"));
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}

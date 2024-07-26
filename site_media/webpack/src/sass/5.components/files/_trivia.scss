@@ -1,0 +1,64 @@
+.trivia{
+  overflow-x: hidden;
+  &__timer{
+    font-variant-numeric: tabular-nums;
+  }
+  &__wrapper{
+    width: fit-content;
+    margin: 0 auto;
+  }
+  &__field{
+    &:nth-child(1){ animation-delay: .5s; }
+    &:nth-child(2){ animation-delay: .75s; }
+    &:nth-child(3){ animation-delay: 1s; }
+    label{
+      cursor: pointer;
+    }
+  }
+  &__animated-circle{
+    /* stroke-dasharray: 1980; */
+    max-width: 220px;
+    .static--blue{
+      fill:#242731;
+    }
+    .static--grad{
+      fill: url(#timer_gradient);
+      filter: drop-shadow(-2px -2px 3px #c3c3c3) drop-shadow(2px 2px 3px #30210f);
+    }
+    .animated{
+      stroke-dasharray: 1500;
+      stroke-dashoffset: 4500;
+
+
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: center;
+
+      fill:none;
+      stroke:none;
+      stroke-width:21;
+      stroke-miterlimit:10;
+
+      filter: drop-shadow(0px 0px 10px #fff) blur(1px);
+      animation-iteration-count: infinite;
+      animation-duration: 5s;
+    }
+
+    &.start > .animated{
+      animation-name: timer_animation;
+      stroke:#FFFFFF;
+    }
+
+  }
+}
+@include keyframes(timer_animation){
+  0%{
+    stroke-dashoffset: 3000;
+  }
+  50%{
+    stroke-dashoffset: 1500;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}

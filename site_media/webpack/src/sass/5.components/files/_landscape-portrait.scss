@@ -1,0 +1,128 @@
+html.input-mode,body.input-mode{
+  & .to-portrait-alert,
+  & .to-landscape-alert{
+    display: none !important;
+  }
+}
+%direction_commons{
+  background-color: rgba(0,0,0,.875);
+  backdrop-filter: blur(6px);
+  height: 100dvh;
+  width: 100dvw;
+  top: 0;
+  left: 0;
+
+  .svg__animated{
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-duration: 2s;
+    transform-origin: center;
+    fill:rgba(255,255,255,0.75);
+  }
+  .arrows{
+    fill:rgba(255,255,255,0.25);
+    animation-duration: 2s;
+  }
+  p{
+    --fs-value: 1.25rem;
+    color: #fff;
+  }
+}
+.to-landscape-alert{
+  @extend %direction_commons;
+  @media (orientation: portrait) and (hover: none) and (pointer: coarse){
+    @include display-flex();
+  }
+  .cellphone{
+    animation-name: cellphoneToLandscape;
+  }
+  .arrows{
+    animation-name: arrowsToLandscape;
+  }
+}
+.to-portrait-alert{
+ @extend %direction_commons;
+
+  @media (orientation: landscape) and (hover: none) and (pointer: coarse)  {
+    @include display-flex();
+  }
+  .cellphone{
+    animation-name: cellphoneToPortrait;
+  }
+  .arrows{
+    animation-name: arrowsToPortrait;
+  }
+}
+
+@include keyframes(cellphoneToLandscape){
+  0%{
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10%{
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  90%{
+    opacity: 1;
+    transform: rotate(-90deg);
+  }
+  100%{
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+}
+@include keyframes(arrowsToLandscape){
+  0%{
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  10%{
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+  90%{
+    opacity: 1;
+    transform: rotate(-10deg);
+  }
+  100%{
+    transform: rotate(-10deg);
+    opacity: 0;
+  }
+}
+@include keyframes(cellphoneToPortrait){
+  0%{
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  10%{
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+  90%{
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+}
+@include keyframes(arrowsToPortrait){
+  0%{
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+  10%{
+    opacity: 0;
+    transform: rotate(-10deg);
+  }
+  90%{
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(0deg);
+    opacity: 0;
+  }
+}

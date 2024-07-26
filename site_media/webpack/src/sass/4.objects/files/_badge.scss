@@ -1,0 +1,25 @@
+.badge{
+  min-width: 1.125rem;
+  min-height: 1.125rem;
+  border: 2px solid;
+  border-radius: 100rem;
+  padding: .125rem;
+  line-height: 1;
+  position: absolute;
+  // display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  font-size: .625rem;
+  text-transform: uppercase;
+  .u-hiddenVisually {
+    border: 0 !important;
+    clip: rect(1px, 1px, 1px, 1px) !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    width: 1px !important;
+  }
+}

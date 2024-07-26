@@ -1,0 +1,35 @@
+$display_utilities: true !default;
+@include bulk_full_selector_extend_helper($display_setup,$display_utilities);
+$position_utilities: true !default;
+@include bulk_full_selector_extend_helper($position_setup,$position_utilities);
+
+
+
+
+$flex_utilities: true !default;
+@include bulk_full_selector_extend_helper($flexbox_setup,$flex_utilities);
+$grid_utilities: false !default;
+@if $grid_utilities {
+  @warn 'grid_utilities are still in development';
+}
+
+
+
+$width_utilities: true !default;
+@include bulk_full_selector_extend_helper($width_setup,$width_utilities);
+$height_utilities: true !default;
+@include bulk_full_selector_extend_helper($height_setup,$height_utilities);
+
+
+
+$margin_utilities: true !default;
+@include bulk_margin_padding($margin_setup,$margin_utilities);
+$padding_utilities: true !default;
+@include bulk_margin_padding($padding_setup,$padding_utilities);
+
+
+
+$zindex_utilities: true !default;
+// @include bulk_full_selector_extend_helper($zindex_query_setup,$zindex_utilities);
+// @include bulk_simple_selector_extend_helper($zindex_simple_setup,$zindex_utilities);
+@include bulk_simple_selector_extend_helper($zindex_setup,$zindex_utilities);

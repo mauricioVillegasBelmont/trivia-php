@@ -1,0 +1,63 @@
+// position modifiers
+.tlbr,.trbl{
+  &--auto{
+    top: auto;
+    left: auto;
+    bottom: auto;
+    right: auto;
+  }
+  &--0{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+  }
+}
+.top{
+  &--gap{
+    top: calc( var(--row-gap) / 2 );
+    bottom: auto;
+  }
+  &--0{
+    top:0;
+  }
+  &--auto{
+    top:auto;
+  }
+}
+.left{
+  &--gap{
+    left: calc( var(--col-gap) / 2 );
+    right: auto;
+  }
+  &--0{
+    left: 0;
+  }
+  &--auto{
+    left: auto;
+  }
+}
+.bottom{
+  &--gap{
+    bottom: calc( var(--row-gap) / 2 );
+    top: auto;
+  }
+  &--0{
+    bottom: 0;
+  }
+  &--auto{
+    bottom: auto;
+  }
+}
+.right{
+  &--gap{
+    right: calc( var(--col-gap) / 2 );
+    left: auto;
+  }
+  &--0{
+    right: 0;
+  }
+  &--auto{
+    right: auto;
+  }
+}
